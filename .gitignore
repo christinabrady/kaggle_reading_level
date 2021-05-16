@@ -19,7 +19,6 @@
 # Documentation/reports
 *.doc
 *.html
-*.png
 *.svg
 *.jpg
 *.jpeg
@@ -27,5 +26,4 @@
 # Folders
 _tmp
 tmp
-img
 report
