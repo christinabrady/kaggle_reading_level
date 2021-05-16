@@ -56,7 +56,18 @@ unique_wd_ct <- lapply(excerpts, function(x){
 hist(unlist(unique_wrds))
 
 ### presence of a semicolon
+table(unlist(lapply(excerpts, function(x) grepl(";", x))))
 
 ### average word length
+summary(unlist(lapply(excerpts, function(x){
+  tmp <- tokenize_words(x)[[1]]
+  mean(nchar(tmp))
+})))
 
 ### max word length
+summary(unlist(lapply(excerpts, function(x){
+  tmp <- tokenize_words(x)[[1]]
+  max(nchar(tmp))
+})))
+
+## tfidf-inverse word freq 
