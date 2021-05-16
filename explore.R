@@ -22,8 +22,17 @@ enhanced <- training %>%
   mutate(wordct = count_words(excerpt),
     sentct = count_sentences(excerpt))
 
-hist(enhanced$wordct, 100)
-hist(enhanced$sentct, 100)
+png(sprintf("%s/Documents/codebase/kaggle_reading_level/img/word_count.png", getwd()))
+hist(enhanced$wordct,
+  breaks = 100,
+  xlab = "Word Count")
+dev.off()
+
+png(sprintf("%s/Documents/codebase/kaggle_reading_level/img/sentence_count.png", getwd()))
+hist(enhanced$sentct,
+  breaks = 100,
+  xlab = "Sentence Count")
+dev.off()
 
 ### I want to find the average length of sentences. In order to do so,
 ### I need to tokenize the sentences and then count the words in each sentence.
@@ -70,4 +79,4 @@ summary(unlist(lapply(excerpts, function(x){
   max(nchar(tmp))
 })))
 
-## tfidf-inverse word freq 
+## tfidf-inverse word freq
